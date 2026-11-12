@@ -26,7 +26,7 @@ channel, and the red-card poll is out and collecting votes, all without a human.
 
 ## A walkthrough video
 
-The [**walkthrough video**](https://github.com/garyamorris/commentary-graph/releases/tag/v0.1.0) is narrated and captioned (5 minutes, 1080p, with a 720p copy;
+The [**walkthrough video**](https://github.com/garyamorris/gantry/releases/tag/v0.1.0) is narrated and captioned (5 minutes, 1080p, with a 720p copy;
 download it from the release, since 117 MB of video stays out of git history). The `.srt`/`.vtt` captions are in [docs/demo](docs/demo). Everything in it is a recorded run of the real app against a real `langgraph dev`: the dashboard driven like a person (autopilot, a
 penalty pushed into the feed, manual-mode approvals, the ledger, memory), and replays of real Agent Server runs on the real graph structure (nested
 subgraphs, `Send` fan-out, parallel interrupts resumed by id). **It uses the offline model, and the narration says so.** How it was made, and how to
