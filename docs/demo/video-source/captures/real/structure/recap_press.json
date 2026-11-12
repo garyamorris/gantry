@@ -1,0 +1,33 @@
+{
+ "graph_id": "recap_press",
+ "assistant_id": "faf14d44-dbbd-53fa-abe8-baa923f31ea8",
+ "description": "Half-time and full-time recaps from the ledger (Functional API: @entrypoint/@task, previous)",
+ "graph": {
+  "nodes": [
+   {
+    "id": "recap_press",
+    "type": "runnable",
+    "data": {
+     "name": "recap_press"
+    }
+   },
+   {
+    "id": "__start__"
+   },
+   {
+    "id": "__end__"
+   }
+  ],
+  "edges": [
+   {
+    "source": "__start__",
+    "target": "recap_press"
+   },
+   {
+    "source": "recap_press",
+    "target": "__end__",
+    "conditional": true
+   }
+  ]
+ }
+}

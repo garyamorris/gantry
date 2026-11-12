@@ -1,0 +1,52 @@
+[
+ {
+  "thread_id": "01a1c52d-6245-76c6-8194-865b06e36d15",
+  "graph_id": "showrunner",
+  "label": "showrunner-63",
+  "summary": {
+   "minute": "63'",
+   "mode": "manual"
+  },
+  "metadata": {
+   "graph_id": "showrunner"
+  },
+  "runs": []
+ },
+ {
+  "thread_id": "01a1c52d-72b0-75db-a0bd-2b369ea61038",
+  "graph_id": "curator",
+  "label": "curator-winner",
+  "summary": {
+   "minute": "90+4'"
+  },
+  "metadata": {
+   "graph_id": "curator"
+  },
+  "runs": []
+ },
+ {
+  "thread_id": "01a1c52d-78fa-7350-9d0d-dcebdffd3de0",
+  "graph_id": "poll_studio",
+  "label": "poll-penalty",
+  "summary": {
+   "minute": "71'"
+  },
+  "metadata": {
+   "graph_id": "poll_studio"
+  },
+  "runs": []
+ },
+ {
+  "thread_id": "01a1c52d-7d52-70e0-9513-06dbb0b37917",
+  "graph_id": "showrunner",
+  "label": "showrunner-71-autopilot",
+  "summary": {
+   "minute": "71'",
+   "mode": "autopilot"
+  },
+  "metadata": {
+   "graph_id": "showrunner"
+  },
+  "runs": []
+ }
+]

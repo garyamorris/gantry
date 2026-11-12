@@ -1,0 +1,197 @@
+{
+ "graph_id": "action_desk",
+ "assistant_id": "df5adbcc-bdf3-5179-b17b-815f7bc43943",
+ "description": "Flow 2, generate actions: recall what was done, propose, write a poll (subgraph), screen against policy and memory, approve per action (parallel interrupts), publish, remember",
+ "graph": {
+  "nodes": [
+   {
+    "id": "__start__",
+    "type": "runnable",
+    "data": {
+     "name": "__start__"
+    }
+   },
+   {
+    "id": "defaults",
+    "type": "runnable",
+    "data": {
+     "name": "defaults"
+    },
+    "metadata": {
+     "role": "fills in what a Studio form leaves blank"
+    }
+   },
+   {
+    "id": "recall",
+    "type": "runnable",
+    "data": {
+     "name": "recall"
+    },
+    "metadata": {
+     "store": "read: ledger, preferences, lessons (semantic search)"
+    }
+   },
+   {
+    "id": "propose",
+    "type": "runnable",
+    "data": {
+     "name": "propose"
+    }
+   },
+   {
+    "id": "screen",
+    "type": "runnable",
+    "data": {
+     "name": "screen"
+    },
+    "metadata": {
+     "policy": "publish | ask | suppress",
+     "store": "semantic search for near-duplicate polls"
+    }
+   },
+   {
+    "id": "handle",
+    "type": "runnable",
+    "data": {
+     "name": "handle"
+    },
+    "metadata": {
+     "human": "one interrupt per action, resumed by id",
+     "store": "write"
+    }
+   },
+   {
+    "id": "finish",
+    "type": "runnable",
+    "data": {
+     "name": "finish"
+    },
+    "metadata": {
+     "defer": true
+    }
+   },
+   {
+    "id": "__end__"
+   },
+   {
+    "id": "poll_studio:defaults",
+    "type": "runnable",
+    "data": {
+     "name": "poll_studio:defaults"
+    },
+    "metadata": {
+     "role": "fills in what a Studio form leaves blank"
+    }
+   },
+   {
+    "id": "poll_studio:brief",
+    "type": "runnable",
+    "data": {
+     "name": "poll_studio:brief"
+    }
+   },
+   {
+    "id": "poll_studio:write",
+    "type": "runnable",
+    "data": {
+     "name": "poll_studio:write"
+    },
+    "metadata": {
+     "role": "one of three writers (Send)"
+    }
+   },
+   {
+    "id": "poll_studio:judge",
+    "type": "runnable",
+    "data": {
+     "name": "poll_studio:judge"
+    },
+    "metadata": {
+     "role": "rubric; sends failures back with notes",
+     "defer": true
+    }
+   },
+   {
+    "id": "poll_studio:finalize",
+    "type": "runnable",
+    "data": {
+     "name": "poll_studio:finalize"
+    }
+   }
+  ],
+  "edges": [
+   {
+    "source": "__start__",
+    "target": "defaults"
+   },
+   {
+    "source": "defaults",
+    "target": "recall"
+   },
+   {
+    "source": "handle",
+    "target": "finish"
+   },
+   {
+    "source": "poll_studio:finalize",
+    "target": "screen"
+   },
+   {
+    "source": "propose",
+    "target": "poll_studio:defaults",
+    "conditional": true
+   },
+   {
+    "source": "propose",
+    "target": "screen",
+    "conditional": true
+   },
+   {
+    "source": "recall",
+    "target": "propose"
+   },
+   {
+    "source": "screen",
+    "target": "finish",
+    "conditional": true
+   },
+   {
+    "source": "screen",
+    "target": "handle",
+    "conditional": true
+   },
+   {
+    "source": "finish",
+    "target": "__end__"
+   },
+   {
+    "source": "poll_studio:brief",
+    "target": "poll_studio:finalize",
+    "conditional": true
+   },
+   {
+    "source": "poll_studio:brief",
+    "target": "poll_studio:write",
+    "conditional": true
+   },
+   {
+    "source": "poll_studio:defaults",
+    "target": "poll_studio:brief"
+   },
+   {
+    "source": "poll_studio:judge",
+    "target": "poll_studio:finalize",
+    "conditional": true
+   },
+   {
+    "source": "poll_studio:judge",
+    "target": "poll_studio:write",
+    "conditional": true
+   },
+   {
+    "source": "poll_studio:write",
+    "target": "poll_studio:judge"
+   }
+  ]
+ }
+}

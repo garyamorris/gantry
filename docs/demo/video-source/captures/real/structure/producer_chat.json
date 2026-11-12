@@ -1,0 +1,94 @@
+{
+ "graph_id": "producer_chat",
+ "assistant_id": "d5bdd176-9205-5453-a9fb-29f4c120a2ef",
+ "description": "Ask the producer what it did and why (create_agent + tools over the ledger and memory, Studio chat mode)",
+ "graph": {
+  "nodes": [
+   {
+    "id": "__start__",
+    "type": "runnable",
+    "data": {
+     "name": "__start__"
+    }
+   },
+   {
+    "id": "model",
+    "type": "runnable",
+    "data": {
+     "name": "model"
+    }
+   },
+   {
+    "id": "tools",
+    "type": "runnable",
+    "data": {
+     "name": "tools"
+    },
+    "metadata": {
+     "__tools": [
+      "actions_taken",
+      "poll_performance",
+      "lessons_learned"
+     ]
+    }
+   },
+   {
+    "id": "ModelCallLimitMiddleware.before_model",
+    "type": "runnable",
+    "data": {
+     "name": "ModelCallLimitMiddleware.before_model"
+    }
+   },
+   {
+    "id": "ModelCallLimitMiddleware.after_model",
+    "type": "runnable",
+    "data": {
+     "name": "ModelCallLimitMiddleware.after_model"
+    }
+   },
+   {
+    "id": "__end__"
+   }
+  ],
+  "edges": [
+   {
+    "source": "ModelCallLimitMiddleware.after_model",
+    "target": "ModelCallLimitMiddleware.before_model",
+    "conditional": true
+   },
+   {
+    "source": "ModelCallLimitMiddleware.after_model",
+    "target": "__end__",
+    "conditional": true
+   },
+   {
+    "source": "ModelCallLimitMiddleware.after_model",
+    "target": "tools",
+    "conditional": true
+   },
+   {
+    "source": "ModelCallLimitMiddleware.before_model",
+    "target": "__end__",
+    "conditional": true
+   },
+   {
+    "source": "ModelCallLimitMiddleware.before_model",
+    "target": "model",
+    "conditional": true
+   },
+   {
+    "source": "__start__",
+    "target": "ModelCallLimitMiddleware.before_model"
+   },
+   {
+    "source": "model",
+    "target": "ModelCallLimitMiddleware.after_model"
+   },
+   {
+    "source": "tools",
+    "target": "ModelCallLimitMiddleware.before_model",
+    "conditional": true
+   }
+  ]
+ }
+}

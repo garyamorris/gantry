@@ -1,0 +1,102 @@
+{
+ "graph_id": "curator",
+ "assistant_id": "29e6ff13-2cf1-5ba4-a458-6bc8b43d564f",
+ "description": "Flow 1, rank and curate: score moments, score chat in parallel shards (Send map-reduce), themes, highlights, an editor's re-rank",
+ "graph": {
+  "nodes": [
+   {
+    "id": "__start__",
+    "type": "runnable",
+    "data": {
+     "name": "__start__"
+    }
+   },
+   {
+    "id": "defaults",
+    "type": "runnable",
+    "data": {
+     "name": "defaults"
+    },
+    "metadata": {
+     "role": "fills in what a Studio form leaves blank"
+    }
+   },
+   {
+    "id": "rank_moments",
+    "type": "runnable",
+    "data": {
+     "name": "rank_moments"
+    },
+    "metadata": {
+     "stage": "one: deterministic features"
+    }
+   },
+   {
+    "id": "score_shard",
+    "type": "runnable",
+    "data": {
+     "name": "score_shard"
+    },
+    "metadata": {
+     "stage": "one: map over chat shards"
+    }
+   },
+   {
+    "id": "merge",
+    "type": "runnable",
+    "data": {
+     "name": "merge"
+    },
+    "metadata": {
+     "stage": "one: reduce",
+     "defer": true
+    }
+   },
+   {
+    "id": "editor",
+    "type": "runnable",
+    "data": {
+     "name": "editor"
+    },
+    "metadata": {
+     "stage": "two: a model re-ranks the shortlist"
+    }
+   },
+   {
+    "id": "__end__"
+   }
+  ],
+  "edges": [
+   {
+    "source": "__start__",
+    "target": "defaults"
+   },
+   {
+    "source": "defaults",
+    "target": "rank_moments"
+   },
+   {
+    "source": "merge",
+    "target": "editor"
+   },
+   {
+    "source": "rank_moments",
+    "target": "merge",
+    "conditional": true
+   },
+   {
+    "source": "rank_moments",
+    "target": "score_shard",
+    "conditional": true
+   },
+   {
+    "source": "score_shard",
+    "target": "merge"
+   },
+   {
+    "source": "editor",
+    "target": "__end__"
+   }
+  ]
+ }
+}

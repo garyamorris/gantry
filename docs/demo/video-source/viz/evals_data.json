@@ -1,0 +1,159 @@
+{
+ "floors": {
+  "ndcg@5": 0.93,
+  "highlight_precision": 0.85,
+  "hide_recall": 0.97,
+  "false_hide_rate": 0.01
+ },
+ "ndcg": {
+  "derby": 0.9837568270853688,
+  "stalemate": 0.9914049685698783,
+  "goalfest": 0.9577844058924904
+ },
+ "curation": {
+  "derby": {
+   "precision": 0.9866666666666667,
+   "highlights": 75,
+   "hide_recall": 1.0,
+   "hidden": 99,
+   "false_hides": 0,
+   "comments": 949
+  },
+  "stalemate": {
+   "precision": 0.9428571428571428,
+   "highlights": 70,
+   "hide_recall": 1.0,
+   "hidden": 76,
+   "false_hides": 0,
+   "comments": 700
+  },
+  "goalfest": {
+   "precision": 0.96,
+   "highlights": 75,
+   "hide_recall": 1.0,
+   "hidden": 98,
+   "false_hides": 0,
+   "comments": 902
+  }
+ },
+ "autopilot": {
+  "derby": {
+   "polls": 12,
+   "mean": 0.20814999999999997,
+   "duds": 1,
+   "held_back": 10,
+   "windows": 40,
+   "errors": 0,
+   "overlaps": 0,
+   "repeats": 0,
+   "templates": [
+    "decision",
+    "goal_rating",
+    "keeper_save",
+    "motm",
+    "next_goal",
+    "penalty_outcome",
+    "potm_half",
+    "red_card",
+    "sub_wish",
+    "vibe_check",
+    "winner_from_here"
+   ]
+  },
+  "stalemate": {
+   "polls": 7,
+   "mean": 0.23011428571428572,
+   "duds": 1,
+   "held_back": 17,
+   "windows": 37,
+   "errors": 0,
+   "overlaps": 0,
+   "repeats": 0,
+   "templates": [
+    "decision",
+    "goal_rating",
+    "motm",
+    "next_goal",
+    "potm_half",
+    "sub_wish",
+    "vibe_check"
+   ]
+  },
+  "goalfest": {
+   "polls": 12,
+   "mean": 0.19329166666666667,
+   "duds": 2,
+   "held_back": 18,
+   "windows": 41,
+   "errors": 0,
+   "overlaps": 0,
+   "repeats": 0,
+   "templates": [
+    "chat_split",
+    "goal_rating",
+    "hattrick_watch",
+    "motm",
+    "next_goal",
+    "penalty_outcome",
+    "potm_half",
+    "sub_wish",
+    "vibe_check",
+    "winner_from_here"
+   ]
+  }
+ },
+ "memory": {
+  "cold": {
+   "polls": 7,
+   "mean": 0.23011428571428572,
+   "duds": 1,
+   "held_back": 17,
+   "windows": 37,
+   "errors": 0,
+   "overlaps": 0,
+   "repeats": 0,
+   "templates": [
+    "decision",
+    "goal_rating",
+    "motm",
+    "next_goal",
+    "potm_half",
+    "sub_wish",
+    "vibe_check"
+   ]
+  },
+  "warm": {
+   "polls": 6,
+   "mean": 0.26605,
+   "duds": 0,
+   "held_back": 18,
+   "windows": 37,
+   "errors": 0,
+   "overlaps": 0,
+   "repeats": 0,
+   "templates": [
+    "decision",
+    "motm",
+    "next_goal",
+    "potm_half",
+    "sub_wish",
+    "winner_from_here"
+   ]
+  },
+  "lessons": [
+   {
+    "id": "decision:up",
+    "text": "Polls on a disputed call (VAR, offside, a penalty shout) pull 39% of viewers on this channel, against an average of 23%. Reach for them when the moment allows."
+   },
+   {
+    "id": "sub_wish:down",
+    "text": "\u201cWho should come on?\u201d polls only pull 16% of viewers on this channel, against an average of 23%. Use them sparingly; prefer a poll tied to a moment."
+   },
+   {
+    "id": "penalty_outcome:up",
+    "text": "\u201cWhat happens next?\u201d polls at a penalty pull 36% of viewers on this channel, against an average of 22%. Reach for them when the moment allows."
+   }
+  ],
+  "memory_reasons": 2
+ }
+}

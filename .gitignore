@@ -1,0 +1,29 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.langgraph_api/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+var/
+node_modules/
+.DS_Store
+# the finished videos (117 MB) are not in git history: they are attached to the GitHub Release (see README). The .plan.json / .fcproj
+# build files hold absolute local paths.
+docs/demo/*.mp4
+docs/demo/*.plan.json
+docs/demo/*.fcproj
+# video tooling: recordings, renders and binaries are rebuilt from docs/demo/video-source (see its README)
+docs/demo/video-source/raw/
+docs/demo/video-source/viz_out/
+docs/demo/video-source/work/
+docs/demo/video-source/fcdata/
+docs/demo/video-source/fc.out
+docs/demo/video-source/narration/audio/
+docs/demo/video-source/narration/cache/
+docs/demo/video-source/rec/rec
+docs/demo/video-source/rec/vtool
+docs/demo/FilmCraft Previews/

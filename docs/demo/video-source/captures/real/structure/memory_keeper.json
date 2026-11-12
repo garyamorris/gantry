@@ -1,0 +1,101 @@
+{
+ "graph_id": "memory_keeper",
+ "assistant_id": "637b2654-a50a-5780-b6c5-b7b6cd86b3b2",
+ "description": "Learns from closed polls: outcomes, template preferences, lessons (Store, semantic search, memory-write interrupt)",
+ "graph": {
+  "nodes": [
+   {
+    "id": "__start__",
+    "type": "runnable",
+    "data": {
+     "name": "__start__"
+    }
+   },
+   {
+    "id": "defaults",
+    "type": "runnable",
+    "data": {
+     "name": "defaults"
+    },
+    "metadata": {
+     "role": "fills in what a Studio form leaves blank"
+    }
+   },
+   {
+    "id": "record",
+    "type": "runnable",
+    "data": {
+     "name": "record"
+    },
+    "metadata": {
+     "store": "write: the poll result, the ledger entry"
+    }
+   },
+   {
+    "id": "learn",
+    "type": "runnable",
+    "data": {
+     "name": "learn"
+    },
+    "metadata": {
+     "store": "write: template stats; read: lessons"
+    }
+   },
+   {
+    "id": "curate",
+    "type": "runnable",
+    "data": {
+     "name": "curate"
+    },
+    "metadata": {
+     "human": "memory-write review (manual mode)"
+    }
+   },
+   {
+    "id": "close",
+    "type": "runnable",
+    "data": {
+     "name": "close"
+    },
+    "metadata": {
+     "store": "write: the lesson, indexed for semantic recall"
+    }
+   },
+   {
+    "id": "__end__"
+   }
+  ],
+  "edges": [
+   {
+    "source": "__start__",
+    "target": "defaults"
+   },
+   {
+    "source": "curate",
+    "target": "close"
+   },
+   {
+    "source": "defaults",
+    "target": "record"
+   },
+   {
+    "source": "learn",
+    "target": "close",
+    "conditional": true
+   },
+   {
+    "source": "learn",
+    "target": "curate",
+    "conditional": true
+   },
+   {
+    "source": "record",
+    "target": "learn"
+   },
+   {
+    "source": "close",
+    "target": "__end__"
+   }
+  ]
+ }
+}

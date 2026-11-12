@@ -1,0 +1,540 @@
+{
+ "width": 1920,
+ "height": 1080,
+ "fps": 30,
+ "narration_dir": "narration/audio",
+ "preset": "Match Source – Adaptive Low Bitrate",
+ "max_mb": 90,
+ "audio_kbps": 128,
+ "small": {
+  "width": 1280,
+  "height": 720,
+  "max_mb": 40,
+  "audio_kbps": 96
+ },
+ "xfade": 0.3,
+ "narration_db": -3.0,
+ "captions": true,
+ "caption_style": {
+  "font": "Inter",
+  "size": 34,
+  "background": "#000000b0",
+  "margin": 0.05
+ },
+ "title": {
+  "text": "Gantry",
+  "sub": "an autonomous producer for a live stream",
+  "seconds": 3.5,
+  "bg": {
+   "type": "video",
+   "path": "raw/hero.mp4",
+   "in": 15.55,
+   "freeze": true
+  },
+  "dim": -90
+ },
+ "outro": {
+  "text": "Run it yourself",
+  "sub": "make dev  ·  localhost:2030/app  ·  LangGraph Studio",
+  "seconds": 3.5,
+  "bg": {
+   "type": "video",
+   "path": "raw/hero.mp4",
+   "in": 201.9,
+   "freeze": true
+  },
+  "dim": -90
+ },
+ "scenes": [
+  {
+   "id": "A",
+   "segments": [
+    {
+     "type": "video",
+     "path": "raw/hero.mp4",
+     "speed": "fit",
+     "in": 1.62,
+     "out": 25.19
+    }
+   ],
+   "callouts": [
+    {
+     "at": 1.24,
+     "dur": 4.5,
+     "text": "Gantry · an autonomous producer",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 17.96,
+     "dur": 4.5,
+     "text": "offline model · no keys, no network",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 24.66,
+     "dur": 4.0,
+     "text": "a poll nobody typed",
+     "style": "tech",
+     "anchor": "tr"
+    }
+   ],
+   "pad_before": 0.35,
+   "pad_after": 0.45
+  },
+  {
+   "id": "B",
+   "segments": [
+    {
+     "type": "video",
+     "path": "viz_out/overview.mp4",
+     "speed": "fit",
+     "in": 0
+    }
+   ],
+   "callouts": [
+    {
+     "at": 3.94,
+     "dur": 4.0,
+     "text": "window · one stretch, as JSON",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 8.56,
+     "dur": 3.5,
+     "text": "showrunner · two subgraphs",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 11.72,
+     "dur": 3.5,
+     "text": "curator · rank and curate",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 14.16,
+     "dur": 4.0,
+     "text": "action_desk · generate actions",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 23.24,
+     "dur": 4.0,
+     "text": "LangGraph Store · memory",
+     "style": "tech",
+     "anchor": "tr"
+    }
+   ],
+   "pad_before": 0.35,
+   "pad_after": 0.45
+  },
+  {
+   "id": "C",
+   "segments": [
+    {
+     "type": "video",
+     "path": "raw/hero.mp4",
+     "speed": "fit",
+     "in": 29.35,
+     "out": 58.86
+    }
+   ],
+   "callouts": [
+    {
+     "at": 2.18,
+     "dur": 4.0,
+     "text": "event-driven, not a timer",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 10.1,
+     "dur": 4.0,
+     "text": "urgent · fires in seconds",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 25.26,
+     "dur": 4.5,
+     "text": "one window in flight · sheds load",
+     "style": "tech",
+     "anchor": "tr"
+    }
+   ],
+   "pad_before": 0.35,
+   "pad_after": 0.45
+  },
+  {
+   "id": "D",
+   "segments": [
+    {
+     "type": "video",
+     "path": "viz_out/replay_showrunner.mp4",
+     "in": 0.2,
+     "freeze": true,
+     "move": "none",
+     "speed": "fit",
+     "weight": 5.5
+    },
+    {
+     "type": "video",
+     "path": "viz_out/replay_showrunner.mp4",
+     "speed": "fit",
+     "in": 0,
+     "weight": 15.0
+    }
+   ],
+   "callouts": [
+    {
+     "at": 3.8,
+     "dur": 3.5,
+     "text": "triage · a cheap gate",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 7.7,
+     "dur": 3.5,
+     "text": "curate · the curator subgraph",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 10.26,
+     "dur": 3.5,
+     "text": "act · the action desk subgraph",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 11.5,
+     "dur": 4.0,
+     "text": "a subgraph inside a subgraph",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 15.06,
+     "dur": 4.0,
+     "text": "one thread per window",
+     "style": "tech",
+     "anchor": "tr"
+    }
+   ],
+   "pad_before": 0.35,
+   "pad_after": 0.45
+  },
+  {
+   "id": "E",
+   "segments": [
+    {
+     "type": "video",
+     "path": "raw/hero.mp4",
+     "speed": "fit",
+     "in": 109.41,
+     "out": 116.41,
+     "weight": 7.0
+    },
+    {
+     "type": "video",
+     "path": "viz_out/replay_curator.mp4",
+     "in": 0.2,
+     "freeze": true,
+     "move": "none",
+     "speed": "fit",
+     "weight": 2.0
+    },
+    {
+     "type": "video",
+     "path": "viz_out/replay_curator.mp4",
+     "speed": "fit",
+     "in": 0,
+     "weight": 16.0
+    },
+    {
+     "type": "video",
+     "path": "raw/hero.mp4",
+     "speed": "fit",
+     "in": 116.27,
+     "out": 120.67,
+     "weight": 4.4
+    }
+   ],
+   "callouts": [
+    {
+     "at": 11.82,
+     "dur": 4.0,
+     "text": "Send · shards of 40",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 17.94,
+     "dur": 4.0,
+     "text": "2 shards → merge (defer)",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 21.36,
+     "dur": 4.5,
+     "text": "editor · re-ranks the shortlist",
+     "style": "tech",
+     "anchor": "tr"
+    }
+   ],
+   "pad_before": 0.35,
+   "pad_after": 0.45
+  },
+  {
+   "id": "F",
+   "segments": [
+    {
+     "type": "video",
+     "path": "raw/policy.mp4",
+     "speed": "fit",
+     "in": 62.82,
+     "out": 69.32,
+     "weight": 6.5
+    },
+    {
+     "type": "video",
+     "path": "viz_out/replay_studio.mp4",
+     "speed": "fit",
+     "in": 0,
+     "weight": 14.0
+    },
+    {
+     "type": "video",
+     "path": "raw/policy.mp4",
+     "speed": "fit",
+     "in": 69.32,
+     "out": 73.02,
+     "weight": 5.4
+    }
+   ],
+   "callouts": [
+    {
+     "at": 7.94,
+     "dur": 4.0,
+     "text": "Send ×3 · three writers",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 13.78,
+     "dur": 3.5,
+     "text": "judge · a rubric",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 19.56,
+     "dur": 4.0,
+     "text": "revise loop · notes",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 22.46,
+     "dur": 4.0,
+     "text": "validated · engine fallback",
+     "style": "tech",
+     "anchor": "tr"
+    }
+   ],
+   "pad_before": 0.35,
+   "pad_after": 0.45
+  },
+  {
+   "id": "G",
+   "segments": [
+    {
+     "type": "video",
+     "path": "raw/policy.mp4",
+     "speed": "fit",
+     "in": 30.0,
+     "out": 46.0
+    },
+    {
+     "type": "video",
+     "path": "raw/policy.mp4",
+     "speed": "fit",
+     "in": 75.25,
+     "out": 80.15
+    }
+   ],
+   "callouts": [
+    {
+     "at": 2.84,
+     "dur": 4.0,
+     "text": "publish · ask · hold",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 5.34,
+     "dur": 4.0,
+     "text": "policy · the rules",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 15.02,
+     "dur": 4.5,
+     "text": "ledger · every refusal has a reason",
+     "style": "tech",
+     "anchor": "tr"
+    }
+   ],
+   "pad_before": 0.35,
+   "pad_after": 0.45
+  },
+  {
+   "id": "H",
+   "segments": [
+    {
+     "type": "video",
+     "path": "raw/manual.mp4",
+     "speed": "fit",
+     "in": 29.66,
+     "out": 33.86
+    },
+    {
+     "type": "video",
+     "path": "viz_out/replay_resume.mp4",
+     "speed": "fit",
+     "in": 0,
+     "out": 5.3
+    },
+    {
+     "type": "video",
+     "path": "raw/manual.mp4",
+     "speed": "fit",
+     "in": 35.37,
+     "out": 42.33
+    },
+    {
+     "type": "video",
+     "path": "raw/manual.mp4",
+     "speed": "fit",
+     "in": 52.16,
+     "out": 56.16
+    },
+    {
+     "type": "video",
+     "path": "viz_out/replay_resume.mp4",
+     "speed": "fit",
+     "in": 5.3
+    }
+   ],
+   "callouts": [
+    {
+     "at": 4.68,
+     "dur": 4.0,
+     "text": "interrupt() · one per action",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 8.24,
+     "dur": 3.5,
+     "text": "resume by id",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 20.6,
+     "dur": 4.0,
+     "text": "resume from the checkpoint",
+     "style": "tech",
+     "anchor": "tr"
+    }
+   ],
+   "pad_before": 0.35,
+   "pad_after": 0.45
+  },
+  {
+   "id": "I",
+   "segments": [
+    {
+     "type": "video",
+     "path": "raw/memory.mp4",
+     "speed": "fit",
+     "in": 4.25,
+     "out": 21.58
+    }
+   ],
+   "callouts": [
+    {
+     "at": 4.06,
+     "dur": 4.0,
+     "text": "memory_keeper · writes the Store",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 15.44,
+     "dur": 4.5,
+     "text": "preferences · per kind of poll",
+     "style": "tech",
+     "anchor": "tr"
+    },
+    {
+     "at": 22.18,
+     "dur": 4.0,
+     "text": "lessons · semantic search",
+     "style": "tech",
+     "anchor": "tr"
+    }
+   ],
+   "pad_before": 0.35,
+   "pad_after": 0.45
+  },
+  {
+   "id": "J",
+   "segments": [
+    {
+     "type": "video",
+     "path": "viz_out/evals.mp4",
+     "speed": "fit",
+     "in": 0
+    }
+   ],
+   "callouts": [],
+   "pad_before": 0.35,
+   "pad_after": 0.45
+  },
+  {
+   "id": "K",
+   "segments": [
+    {
+     "type": "video",
+     "path": "raw/hero.mp4",
+     "speed": "fit",
+     "in": 165.0,
+     "out": 181.5,
+     "weight": 16.0
+    },
+    {
+     "type": "video",
+     "path": "raw/hero.mp4",
+     "in": 201.9,
+     "freeze": true,
+     "move": "zoom-out",
+     "speed": "fit",
+     "weight": 6.0
+    }
+   ],
+   "callouts": [],
+   "pad_before": 0.35,
+   "pad_after": 0.45
+  }
+ ]
+}

@@ -1,0 +1,102 @@
+{
+ "graph_id": "poll_studio",
+ "assistant_id": "b7359bef-169d-5a75-a944-6747dd68aab8",
+ "description": "The first feature: three writers draft a poll for a live moment, a judge scores, a revise loop tightens it",
+ "graph": {
+  "nodes": [
+   {
+    "id": "__start__",
+    "type": "runnable",
+    "data": {
+     "name": "__start__"
+    }
+   },
+   {
+    "id": "defaults",
+    "type": "runnable",
+    "data": {
+     "name": "defaults"
+    },
+    "metadata": {
+     "role": "fills in what a Studio form leaves blank"
+    }
+   },
+   {
+    "id": "brief",
+    "type": "runnable",
+    "data": {
+     "name": "brief"
+    }
+   },
+   {
+    "id": "write",
+    "type": "runnable",
+    "data": {
+     "name": "write"
+    },
+    "metadata": {
+     "role": "one of three writers (Send)"
+    }
+   },
+   {
+    "id": "judge",
+    "type": "runnable",
+    "data": {
+     "name": "judge"
+    },
+    "metadata": {
+     "role": "rubric; sends failures back with notes",
+     "defer": true
+    }
+   },
+   {
+    "id": "finalize",
+    "type": "runnable",
+    "data": {
+     "name": "finalize"
+    }
+   },
+   {
+    "id": "__end__"
+   }
+  ],
+  "edges": [
+   {
+    "source": "__start__",
+    "target": "defaults"
+   },
+   {
+    "source": "brief",
+    "target": "finalize",
+    "conditional": true
+   },
+   {
+    "source": "brief",
+    "target": "write",
+    "conditional": true
+   },
+   {
+    "source": "defaults",
+    "target": "brief"
+   },
+   {
+    "source": "judge",
+    "target": "finalize",
+    "conditional": true
+   },
+   {
+    "source": "judge",
+    "target": "write",
+    "conditional": true
+   },
+   {
+    "source": "write",
+    "target": "judge"
+   },
+   {
+    "source": "finalize",
+    "target": "__end__"
+   }
+  ]
+ }
+}

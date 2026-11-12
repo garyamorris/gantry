@@ -1,0 +1,83 @@
+{
+ "window_63": {
+  "events": 2,
+  "comments": 43,
+  "trigger": {
+   "kind": "event",
+   "event_id": "e033",
+   "reason": "card.red"
+  },
+  "minute": "63'"
+ },
+ "interrupts_first": [
+  "highlight",
+  "poll"
+ ],
+ "interrupts_after_poll": [
+  "highlight"
+ ],
+ "end_state": {
+  "window_id": "w001",
+  "skipped": false,
+  "trigger": {
+   "kind": "event",
+   "event_id": "e033",
+   "reason": "card.red"
+  },
+  "minute": "63'",
+  "headline": "RED CARD! Dragovic (Ironbridge Athletic) is sent off for a last-man foul on Nakamura. Ironbridge Athletic are down to ten.",
+  "note": "63': RED CARD! Dragovic (Ironbridge Athletic) is sent off for a last-man foul on Nakamura. Ironbridge Athletic are down to ten. (chat spiked 2.7x) The talk is about the referee. Best of the chat is from halfspace_hana. 5 hidden as spam or abuse.",
+  "highlights": 3,
+  "hidden": 5,
+  "actions": {
+   "rejected": [
+    "63' \u00b7 RED CARD"
+   ],
+   "published": [
+    "DRAGOVIC SEES RED \ud83d\udfe5 DESERVED?"
+   ]
+  }
+ },
+ "curator": {
+  "comments": 52,
+  "shards": 2,
+  "headline": "GOAL! Harbour City 2-1 Ironbridge Athletic. Okafor: a towering header from the corner. Reyes with the assist.",
+  "score": 1.0,
+  "highlights": 3,
+  "hidden": 4,
+  "collapsed": 15,
+  "total": 52
+ },
+ "poll": {
+  "question": "PENALTY! VALDES STEPS UP \ud83d\ude2c",
+  "options": [
+   "\u26bd Scores",
+   "\ud83e\udde4 Saved",
+   "\ud83d\ude80 Misses"
+  ],
+  "writer": "hype",
+  "judge": 1.0,
+  "rounds": 1,
+  "template": "penalty_outcome"
+ },
+ "autopilot_71": {
+  "window_id": "w001",
+  "skipped": false,
+  "trigger": {
+   "kind": "event",
+   "event_id": "e040",
+   "reason": "penalty.awarded"
+  },
+  "minute": "71'",
+  "headline": "PENALTY to Harbour City! Whitlock is penalised for handball. Valdes will take it.",
+  "note": "71': PENALTY to Harbour City! Whitlock is penalised for handball. Valdes will take it. (chat spiked 4.2x) Chat is running at 1.5x its normal pace. The talk is about the penalty. Best of the chat is from set_piece_steve. 9 hidden as spam or abuse.",
+  "highlights": 3,
+  "hidden": 9,
+  "actions": {
+   "published": [
+    "71' \u00b7 PENALTY",
+    "PENALTY! VALDES STEPS UP \ud83d\ude2c"
+   ]
+  }
+ }
+}

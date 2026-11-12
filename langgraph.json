@@ -1,0 +1,16 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "showrunner": {"path": "./src/gantry/graphs/showrunner.py:graph", "description": "THE LOOP: one live window end to end. Intake, triage, curate (subgraph), act (subgraph), wrap. What the dispatcher runs on every trigger"},
+    "curator": {"path": "./src/gantry/graphs/curator.py:graph", "description": "Flow 1, rank and curate: score moments, score chat in parallel shards (Send map-reduce), themes, highlights, an editor's re-rank"},
+    "action_desk": {"path": "./src/gantry/graphs/action_desk.py:graph", "description": "Flow 2, generate actions: recall what was done, propose, write a poll (subgraph), screen against policy and memory, approve per action (parallel interrupts), publish, remember"},
+    "poll_studio": {"path": "./src/gantry/graphs/poll_studio.py:graph", "description": "The first feature: three writers draft a poll for a live moment, a judge scores, a revise loop tightens it"},
+    "memory_keeper": {"path": "./src/gantry/graphs/memory_keeper.py:graph", "description": "Learns from closed polls: outcomes, template preferences, lessons (Store, semantic search, memory-write interrupt)"},
+    "recap_press": {"path": "./src/gantry/graphs/recap_press.py:graph", "description": "Half-time and full-time recaps from the ledger (Functional API: @entrypoint/@task, previous)"},
+    "producer_chat": {"path": "./src/gantry/graphs/producer_chat.py:graph", "description": "Ask the producer what it did and why (create_agent + tools over the ledger and memory, Studio chat mode)"}
+  },
+  "http": {"app": "./src/gantry/server/app.py:app"},
+  "store": {"index": {"embed": "./src/gantry/embeddings.py:aembed", "dims": 256, "fields": ["text"]}},
+  "python_version": "3.12",
+  "env": ".env"
+}

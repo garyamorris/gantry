@@ -1,0 +1,205 @@
+{
+ "prefs": [
+  {
+   "template": "decision",
+   "n": 2,
+   "mean": 0.368,
+   "best": 0.3698,
+   "approved": 0,
+   "edited": 0,
+   "rejected": 0,
+   "auto": 2,
+   "samples": [
+    "w025:poll:decision:e025",
+    "w021:poll:decision:e034"
+   ]
+  },
+  {
+   "template": "penalty_outcome",
+   "n": 4,
+   "mean": 0.2586,
+   "best": 0.319,
+   "approved": 0,
+   "edited": 0,
+   "rejected": 0,
+   "auto": 4,
+   "samples": [
+    "w004:poll:pen:x000",
+    "w014:poll:pen:e040",
+    "w030:poll:pen:e042",
+    "w028:poll:pen:e045"
+   ]
+  },
+  {
+   "template": "chat_split",
+   "n": 1,
+   "mean": 0.254,
+   "best": 0.254,
+   "approved": 0,
+   "edited": 0,
+   "rejected": 0,
+   "auto": 1,
+   "samples": [
+    "w015:poll:split:referee:2"
+   ]
+  },
+  {
+   "template": "motm",
+   "n": 4,
+   "mean": 0.2445,
+   "best": 0.3197,
+   "approved": 0,
+   "edited": 0,
+   "rejected": 0,
+   "auto": 4,
+   "samples": [
+    "w021:poll:motm",
+    "w042:poll:motm",
+    "w035:poll:motm",
+    "w039:poll:motm"
+   ]
+  },
+  {
+   "template": "hattrick_watch",
+   "n": 2,
+   "mean": 0.2256,
+   "best": 0.2461,
+   "approved": 0,
+   "edited": 0,
+   "rejected": 0,
+   "auto": 2,
+   "samples": [
+    "w017:poll:hattrick:VRO9",
+    "w025:poll:hattrick:NGU9"
+   ]
+  },
+  {
+   "template": "red_card",
+   "n": 2,
+   "mean": 0.2247,
+   "best": 0.2317,
+   "approved": 0,
+   "edited": 0,
+   "rejected": 0,
+   "auto": 2,
+   "samples": [
+    "w011:poll:red:e033",
+    "w025:poll:red:e040"
+   ]
+  },
+  {
+   "template": "potm_half",
+   "n": 2,
+   "mean": 0.222,
+   "best": 0.2375,
+   "approved": 0,
+   "edited": 0,
+   "rejected": 0,
+   "auto": 2,
+   "samples": [
+    "w016:poll:potm:first_half",
+    "w017:poll:potm:first_half"
+   ]
+  },
+  {
+   "template": "winner_from_here",
+   "n": 5,
+   "mean": 0.2212,
+   "best": 0.261,
+   "approved": 0,
+   "edited": 0,
+   "rejected": 0,
+   "auto": 5,
+   "samples": [
+    "w007:poll:winner:1-1:0",
+    "w008:poll:winner:1-1:0",
+    "w039:poll:winner:4-3:0",
+    "w031:poll:winner:0-1:0",
+    "w014:poll:winner:1-1:0"
+   ]
+  },
+  {
+   "template": "goal_rating",
+   "n": 6,
+   "mean": 0.1736,
+   "best": 0.203,
+   "approved": 0,
+   "edited": 1,
+   "rejected": 0,
+   "auto": 6,
+   "samples": [
+    "w002:poll:goal_rating:e006",
+    "w019:poll:goal_rating:e051",
+    "w002:poll:goal_rating:e001",
+    "w012:poll:goal_rating:e014",
+    "w005:poll:goal_rating:e006",
+    "w037:poll:goal_rating:e055"
+   ]
+  },
+  {
+   "template": "sub_wish",
+   "n": 4,
+   "mean": 0.1721,
+   "best": 0.1812,
+   "approved": 0,
+   "edited": 0,
+   "rejected": 0,
+   "auto": 4,
+   "samples": [
+    "w010:poll:sub_wish:home:4",
+    "w028:poll:sub_wish:home:4",
+    "w021:poll:sub_wish:home:4",
+    "w023:poll:sub_wish:home:4"
+   ]
+  },
+  {
+   "template": "next_goal",
+   "n": 5,
+   "mean": 0.1663,
+   "best": 0.1787,
+   "approved": 0,
+   "edited": 1,
+   "rejected": 0,
+   "auto": 4,
+   "samples": [
+    "w016:poll:next_goal:5",
+    "w001:poll:next_goal:0",
+    "w005:poll:next_goal:0",
+    "w003:poll:next_goal:0",
+    "w008:poll:next_goal:1"
+   ]
+  },
+  {
+   "template": "keeper_save",
+   "n": 1,
+   "mean": 0.1436,
+   "best": 0.1436,
+   "approved": 0,
+   "edited": 0,
+   "rejected": 0,
+   "auto": 1,
+   "samples": [
+    "w030:poll:save:e046"
+   ]
+  },
+  {
+   "template": "vibe_check",
+   "n": 1,
+   "mean": 0.1133,
+   "best": 0.1133,
+   "approved": 0,
+   "edited": 0,
+   "rejected": 0,
+   "auto": 1,
+   "samples": [
+    "w022:poll:vibe:2"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "decision:up",
+   "text": "Polls on a disputed call (VAR, offside, a penalty shout) pull 37% of viewers on this channel, against an average of 21%. Reach for them when the moment allows."
+  }
+ ]
+}

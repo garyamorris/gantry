@@ -1,0 +1,315 @@
+WEBVTT
+
+00:00:03.833 --> 00:00:08.213
+This is Gantry, an autonomous
+producer for a live sports stream.
+
+00:00:08.913 --> 00:00:13.413
+It watches a sports data feed and the
+chat, ranks and curates what matters,
+
+00:00:13.653 --> 00:00:16.413
+and then suggests polls, or on autopilot,
+
+00:00:16.773 --> 00:00:20.953
+simply runs them. Everything you will
+see is a recorded run of the real app,
+
+00:00:21.173 --> 00:00:24.313
+on the offline model: no keys, no network.
+
+00:00:24.853 --> 00:00:27.873
+Here is a goal, and twenty-five
+seconds of match time later,
+
+00:00:28.293 --> 00:00:29.773
+a poll that nobody typed.
+
+00:00:30.767 --> 00:00:32.667
+The loop is simple to say.
+
+00:00:33.107 --> 00:00:36.567
+A feed and a chat go into a window:
+one stretch of the broadcast,
+
+00:00:36.567 --> 00:00:39.127
+as plain JSON.
+
+00:00:39.127 --> 00:00:42.027
+The showrunner runs it
+through two subgraphs.
+
+00:00:42.287 --> 00:00:44.087
+The curator ranks and curates.
+
+00:00:44.727 --> 00:00:49.247
+The action desk generates actions,
+and decides whether each one goes out,
+
+00:00:49.687 --> 00:00:51.287
+waits for a human, or is held back.
+
+00:00:52.027 --> 00:00:54.227
+Whatever happens is written
+to the LangGraph Store,
+
+00:00:54.227 --> 00:00:55.887
+so the next window remembers.
+
+00:00:57.033 --> 00:01:00.873
+It runs in real time, driven
+by events rather than a timer.
+
+00:01:01.493 --> 00:01:04.053
+A goal arms a window
+twenty-five seconds later,
+
+00:01:04.293 --> 00:01:06.373
+so the chat's reaction is in it.
+
+00:01:06.933 --> 00:01:09.913
+A penalty is urgent, and
+fires within seconds.
+
+00:01:10.873 --> 00:01:13.173
+Here we push a penalty
+into the feed ourselves,
+
+00:01:13.453 --> 00:01:15.833
+and the poll is out
+before the kick is taken.
+
+00:01:16.373 --> 00:01:20.413
+If the graphs ever fall behind, triggers
+ride along with the next window.
+
+00:01:21.213 --> 00:01:24.473
+A live system sheds load;
+it does not build a queue.
+
+00:01:25.433 --> 00:01:28.193
+Here is one window,
+replayed from the real run.
+
+00:01:29.033 --> 00:01:31.833
+Triage is a cheap gate,
+because most ticks are noise.
+
+00:01:32.553 --> 00:01:36.093
+Then the curator runs as a subgraph,
+and after it the action desk,
+
+00:01:36.413 --> 00:01:38.053
+with the poll studio inside that.
+
+00:01:38.693 --> 00:01:41.253
+Three levels of subgraph,
+and one thread per window,
+
+00:01:41.733 --> 00:01:44.973
+so a suggestion waiting for a
+human never blocks the next goal.
+
+00:01:45.967 --> 00:01:49.547
+Flow one is ranking and
+curation, in two stages.
+
+00:01:50.907 --> 00:01:53.687
+The first is cheap,
+deterministic, and explainable:
+
+00:01:54.467 --> 00:01:58.587
+every moment is scored with its reasons,
+and the chat is cut into shards of forty
+
+00:01:58.587 --> 00:02:00.467
+and scored in parallel with Send.
+
+00:02:01.347 --> 00:02:04.247
+This window had 52
+comments, so two shards,
+
+00:02:04.747 --> 00:02:07.527
+then a merge. The second
+stage is an editor,
+
+00:02:07.947 --> 00:02:09.807
+a model that sees only the shortlist.
+
+00:02:09.807 --> 00:02:14.307
+It can reorder the best of the chat, but
+never rescue what the first stage hid.
+
+00:02:15.400 --> 00:02:17.260
+The first feature is the poll.
+
+00:02:17.900 --> 00:02:20.880
+A moment becomes a candidate:
+a topic, the facts,
+
+00:02:21.100 --> 00:02:22.140
+and some baseline wording.
+
+00:02:23.140 --> 00:02:26.800
+Three writers, an analyst, a hype
+voice, and a fan from the terraces,
+
+00:02:26.940 --> 00:02:28.340
+draft it in parallel.
+
+00:02:28.980 --> 00:02:32.280
+A judge scores each draft:
+is it clear, neutral,
+
+00:02:32.660 --> 00:02:33.880
+about the moment, and new?
+
+00:02:34.760 --> 00:02:36.040
+Failures go back with notes.
+
+00:02:36.520 --> 00:02:40.240
+And if a model ever writes nonsense, the
+engine's own wording goes out instead.
+
+00:02:41.333 --> 00:02:43.973
+Then policy decides, for
+every action: publish,
+
+00:02:44.473 --> 00:02:45.893
+ask a human, or hold.
+
+00:02:46.473 --> 00:02:50.373
+One poll at a time, a gap between
+polls, never the same question twice,
+
+00:02:50.933 --> 00:02:52.273
+never a topic the human rejected.
+
+00:02:52.833 --> 00:02:55.233
+A big moment can close a small poll early.
+
+00:02:55.833 --> 00:02:58.693
+And every refusal is written
+to the ledger with its reason.
+
+00:02:59.153 --> 00:03:01.133
+That record is what
+lets it run on its own.
+
+00:03:02.200 --> 00:03:05.140
+In manual mode, every
+action waits for a human.
+
+00:03:05.760 --> 00:03:09.900
+Each suggestion is its own interrupt,
+so they can be answered in any order,
+
+00:03:10.240 --> 00:03:13.660
+by id. Here I edit the
+question and publish it,
+
+00:03:13.940 --> 00:03:16.660
+and it goes live at once,
+without waiting for the others.
+
+00:03:17.100 --> 00:03:20.460
+I reject the highlight, and
+the ledger records who decided.
+
+00:03:21.040 --> 00:03:23.380
+Each answer resumes the
+graph from its checkpoint,
+
+00:03:23.740 --> 00:03:25.880
+and nothing above the
+interrupt runs twice.
+
+00:03:27.000 --> 00:03:28.900
+Memory is what changes behaviour.
+
+00:03:29.720 --> 00:03:32.400
+When a poll closes, the memory
+keeper files how it did,
+
+00:03:32.400 --> 00:03:34.700
+and updates what this audience votes on.
+
+00:03:35.240 --> 00:03:39.140
+After a few matches, a disputed
+decision pulls 37% of viewers,
+
+00:03:39.220 --> 00:03:42.240
+and who scores next only 17%,
+
+00:03:42.240 --> 00:03:44.700
+against an average of 21%.
+
+00:03:44.700 --> 00:03:47.140
+The next candidates are
+ranked on that evidence,
+
+00:03:47.520 --> 00:03:50.240
+and when it is clear enough,
+a lesson is written down.
+
+00:03:51.060 --> 00:03:54.900
+Play the same match again, and the
+second time it asks fewer questions,
+
+00:03:54.900 --> 00:03:56.740
+and gets more votes per poll.
+
+00:03:57.800 --> 00:04:01.460
+It ships with an eval gate:
+offline, about five seconds.
+
+00:04:02.320 --> 00:04:07.260
+Against hidden ground truth, moment
+ranking scores at least 0.96,
+
+00:04:07.260 --> 00:04:10.720
+and 94% or more of the comments
+it highlights are good.
+
+00:04:11.580 --> 00:04:16.640
+Spam and abuse is held every time,
+and none of 2,551 good comments
+
+00:04:16.640 --> 00:04:17.720
+was wrongly held.
+
+00:04:18.460 --> 00:04:22.140
+Over three whole matches on
+autopilot: no overlapping polls,
+
+00:04:22.540 --> 00:04:24.280
+no repeats, no errors.
+
+00:04:24.780 --> 00:04:29.380
+And with memory, the second pass
+gets 26.6% of viewers voting,
+
+00:04:29.380 --> 00:04:31.680
+against 23.0%.
+
+00:04:32.700 --> 00:04:35.880
+That is Gantry: seven LangGraph graphs,
+
+00:04:36.300 --> 00:04:40.320
+a live feed in, polls and pins out,
+and a ledger so it can be left alone.
+
+00:04:41.300 --> 00:04:43.920
+Run make dev, and open it on localhost,
+
+00:04:43.920 --> 00:04:47.920
+port twenty-thirty, or open
+the graphs in LangGraph Studio.
+
+00:04:48.900 --> 00:04:50.700
+These recordings used the offline model.
+
+00:04:51.340 --> 00:04:55.900
+A real model is one setting away, and
+that path is written, but not yet run.
+

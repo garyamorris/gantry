@@ -1,0 +1,9 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {"name": "gantry", "runtimeExecutable": "make", "runtimeArgs": ["dev"], "port": 2030},
+    {"name": "gantry-claude", "runtimeExecutable": "env", "runtimeArgs": ["GANTRY_PROVIDER=anthropic", "make", "dev"], "port": 2030},
+    {"name": "gantry-openai", "runtimeExecutable": "env", "runtimeArgs": ["GANTRY_PROVIDER=openai", "make", "dev"], "port": 2030},
+    {"name": "gantry-luna", "runtimeExecutable": "env", "runtimeArgs": ["GANTRY_PROVIDER=openai", "GANTRY_OPENAI_MODEL_SMART=gpt-6-luna", "GANTRY_OPENAI_MODEL_FAST=gpt-6-luna", "make", "dev"], "port": 2030}
+  ]
+}

@@ -1,0 +1,454 @@
+{
+ "A": [
+  {
+   "start": 0.0,
+   "end": 4.38,
+   "text": "This is Gantry, an autonomous\nproducer for a live sports stream."
+  },
+  {
+   "start": 5.08,
+   "end": 9.58,
+   "text": "It watches a sports data feed and the\nchat, ranks and curates what matters,"
+  },
+  {
+   "start": 9.82,
+   "end": 12.58,
+   "text": "and then suggests polls, or on autopilot,"
+  },
+  {
+   "start": 12.94,
+   "end": 17.12,
+   "text": "simply runs them. Everything you will\nsee is a recorded run of the real app,"
+  },
+  {
+   "start": 17.34,
+   "end": 20.48,
+   "text": "on the offline model: no keys, no network."
+  },
+  {
+   "start": 21.02,
+   "end": 24.04,
+   "text": "Here is a goal, and twenty-five\nseconds of match time later,"
+  },
+  {
+   "start": 24.46,
+   "end": 25.94,
+   "text": "a poll that nobody typed."
+  }
+ ],
+ "B": [
+  {
+   "start": 0.0,
+   "end": 1.9,
+   "text": "The loop is simple to say."
+  },
+  {
+   "start": 2.34,
+   "end": 5.8,
+   "text": "A feed and a chat go into a window:\none stretch of the broadcast,"
+  },
+  {
+   "start": 5.8,
+   "end": 8.36,
+   "text": "as plain JSON."
+  },
+  {
+   "start": 8.36,
+   "end": 11.26,
+   "text": "The showrunner runs it\nthrough two subgraphs."
+  },
+  {
+   "start": 11.52,
+   "end": 13.32,
+   "text": "The curator ranks and curates."
+  },
+  {
+   "start": 13.96,
+   "end": 18.48,
+   "text": "The action desk generates actions,\nand decides whether each one goes out,"
+  },
+  {
+   "start": 18.92,
+   "end": 20.52,
+   "text": "waits for a human, or is held back."
+  },
+  {
+   "start": 21.26,
+   "end": 23.46,
+   "text": "Whatever happens is written\nto the LangGraph Store,"
+  },
+  {
+   "start": 23.46,
+   "end": 25.12,
+   "text": "so the next window remembers."
+  }
+ ],
+ "C": [
+  {
+   "start": 0.0,
+   "end": 3.84,
+   "text": "It runs in real time, driven\nby events rather than a timer."
+  },
+  {
+   "start": 4.46,
+   "end": 7.02,
+   "text": "A goal arms a window\ntwenty-five seconds later,"
+  },
+  {
+   "start": 7.26,
+   "end": 9.34,
+   "text": "so the chat's reaction is in it."
+  },
+  {
+   "start": 9.9,
+   "end": 12.88,
+   "text": "A penalty is urgent, and\nfires within seconds."
+  },
+  {
+   "start": 13.84,
+   "end": 16.14,
+   "text": "Here we push a penalty\ninto the feed ourselves,"
+  },
+  {
+   "start": 16.42,
+   "end": 18.8,
+   "text": "and the poll is out\nbefore the kick is taken."
+  },
+  {
+   "start": 19.34,
+   "end": 23.38,
+   "text": "If the graphs ever fall behind, triggers\nride along with the next window."
+  },
+  {
+   "start": 24.18,
+   "end": 27.44,
+   "text": "A live system sheds load;\nit does not build a queue."
+  }
+ ],
+ "D": [
+  {
+   "start": 0.0,
+   "end": 2.76,
+   "text": "Here is one window,\nreplayed from the real run."
+  },
+  {
+   "start": 3.6,
+   "end": 6.4,
+   "text": "Triage is a cheap gate,\nbecause most ticks are noise."
+  },
+  {
+   "start": 7.12,
+   "end": 10.66,
+   "text": "Then the curator runs as a subgraph,\nand after it the action desk,"
+  },
+  {
+   "start": 10.98,
+   "end": 12.62,
+   "text": "with the poll studio inside that."
+  },
+  {
+   "start": 13.26,
+   "end": 15.82,
+   "text": "Three levels of subgraph,\nand one thread per window,"
+  },
+  {
+   "start": 16.3,
+   "end": 19.54,
+   "text": "so a suggestion waiting for a\nhuman never blocks the next goal."
+  }
+ ],
+ "E": [
+  {
+   "start": 0.0,
+   "end": 3.58,
+   "text": "Flow one is ranking and\ncuration, in two stages."
+  },
+  {
+   "start": 4.94,
+   "end": 7.72,
+   "text": "The first is cheap,\ndeterministic, and explainable:"
+  },
+  {
+   "start": 8.5,
+   "end": 12.62,
+   "text": "every moment is scored with its reasons,\nand the chat is cut into shards of forty"
+  },
+  {
+   "start": 12.62,
+   "end": 14.5,
+   "text": "and scored in parallel with Send."
+  },
+  {
+   "start": 15.38,
+   "end": 18.28,
+   "text": "This window had 52\ncomments, so two shards,"
+  },
+  {
+   "start": 18.78,
+   "end": 21.56,
+   "text": "then a merge. The second\nstage is an editor,"
+  },
+  {
+   "start": 21.98,
+   "end": 23.84,
+   "text": "a model that sees only the shortlist."
+  },
+  {
+   "start": 23.84,
+   "end": 28.34,
+   "text": "It can reorder the best of the chat, but\nnever rescue what the first stage hid."
+  }
+ ],
+ "F": [
+  {
+   "start": 0.0,
+   "end": 1.86,
+   "text": "The first feature is the poll."
+  },
+  {
+   "start": 2.5,
+   "end": 5.48,
+   "text": "A moment becomes a candidate:\na topic, the facts,"
+  },
+  {
+   "start": 5.7,
+   "end": 6.74,
+   "text": "and some baseline wording."
+  },
+  {
+   "start": 7.74,
+   "end": 11.4,
+   "text": "Three writers, an analyst, a hype\nvoice, and a fan from the terraces,"
+  },
+  {
+   "start": 11.54,
+   "end": 12.94,
+   "text": "draft it in parallel."
+  },
+  {
+   "start": 13.58,
+   "end": 16.88,
+   "text": "A judge scores each draft:\nis it clear, neutral,"
+  },
+  {
+   "start": 17.26,
+   "end": 18.48,
+   "text": "about the moment, and new?"
+  },
+  {
+   "start": 19.36,
+   "end": 20.64,
+   "text": "Failures go back with notes."
+  },
+  {
+   "start": 21.12,
+   "end": 24.84,
+   "text": "And if a model ever writes nonsense, the\nengine's own wording goes out instead."
+  }
+ ],
+ "G": [
+  {
+   "start": 0.0,
+   "end": 2.64,
+   "text": "Then policy decides, for\nevery action: publish,"
+  },
+  {
+   "start": 3.14,
+   "end": 4.56,
+   "text": "ask a human, or hold."
+  },
+  {
+   "start": 5.14,
+   "end": 9.04,
+   "text": "One poll at a time, a gap between\npolls, never the same question twice,"
+  },
+  {
+   "start": 9.6,
+   "end": 10.94,
+   "text": "never a topic the human rejected."
+  },
+  {
+   "start": 11.5,
+   "end": 13.9,
+   "text": "A big moment can close a small poll early."
+  },
+  {
+   "start": 14.5,
+   "end": 17.36,
+   "text": "And every refusal is written\nto the ledger with its reason."
+  },
+  {
+   "start": 17.82,
+   "end": 19.8,
+   "text": "That record is what\nlets it run on its own."
+  }
+ ],
+ "H": [
+  {
+   "start": 0.0,
+   "end": 2.94,
+   "text": "In manual mode, every\naction waits for a human."
+  },
+  {
+   "start": 3.56,
+   "end": 7.7,
+   "text": "Each suggestion is its own interrupt,\nso they can be answered in any order,"
+  },
+  {
+   "start": 8.04,
+   "end": 11.46,
+   "text": "by id. Here I edit the\nquestion and publish it,"
+  },
+  {
+   "start": 11.74,
+   "end": 14.46,
+   "text": "and it goes live at once,\nwithout waiting for the others."
+  },
+  {
+   "start": 14.9,
+   "end": 18.26,
+   "text": "I reject the highlight, and\nthe ledger records who decided."
+  },
+  {
+   "start": 18.84,
+   "end": 21.18,
+   "text": "Each answer resumes the\ngraph from its checkpoint,"
+  },
+  {
+   "start": 21.54,
+   "end": 23.68,
+   "text": "and nothing above the\ninterrupt runs twice."
+  }
+ ],
+ "I": [
+  {
+   "start": 0.0,
+   "end": 1.9,
+   "text": "Memory is what changes behaviour."
+  },
+  {
+   "start": 2.72,
+   "end": 5.4,
+   "text": "When a poll closes, the memory\nkeeper files how it did,"
+  },
+  {
+   "start": 5.4,
+   "end": 7.7,
+   "text": "and updates what this audience votes on."
+  },
+  {
+   "start": 8.24,
+   "end": 12.14,
+   "text": "After a few matches, a disputed\ndecision pulls 37% of viewers,"
+  },
+  {
+   "start": 12.22,
+   "end": 15.24,
+   "text": "and who scores next only 17%,"
+  },
+  {
+   "start": 15.24,
+   "end": 17.7,
+   "text": "against an average of 21%."
+  },
+  {
+   "start": 17.7,
+   "end": 20.14,
+   "text": "The next candidates are\nranked on that evidence,"
+  },
+  {
+   "start": 20.52,
+   "end": 23.24,
+   "text": "and when it is clear enough,\na lesson is written down."
+  },
+  {
+   "start": 24.06,
+   "end": 27.9,
+   "text": "Play the same match again, and the\nsecond time it asks fewer questions,"
+  },
+  {
+   "start": 27.9,
+   "end": 29.74,
+   "text": "and gets more votes per poll."
+  }
+ ],
+ "J": [
+  {
+   "start": 0.0,
+   "end": 3.66,
+   "text": "It ships with an eval gate:\noffline, about five seconds."
+  },
+  {
+   "start": 4.52,
+   "end": 9.46,
+   "text": "Against hidden ground truth, moment\nranking scores at least 0.96,"
+  },
+  {
+   "start": 9.46,
+   "end": 12.92,
+   "text": "and 94% or more of the comments\nit highlights are good."
+  },
+  {
+   "start": 13.78,
+   "end": 18.84,
+   "text": "Spam and abuse is held every time,\nand none of 2,551 good comments"
+  },
+  {
+   "start": 18.84,
+   "end": 19.92,
+   "text": "was wrongly held."
+  },
+  {
+   "start": 20.66,
+   "end": 24.34,
+   "text": "Over three whole matches on\nautopilot: no overlapping polls,"
+  },
+  {
+   "start": 24.74,
+   "end": 26.48,
+   "text": "no repeats, no errors."
+  },
+  {
+   "start": 26.98,
+   "end": 31.58,
+   "text": "And with memory, the second pass\ngets 26.6% of viewers voting,"
+  },
+  {
+   "start": 31.58,
+   "end": 33.88,
+   "text": "against 23.0%."
+  }
+ ],
+ "K": [
+  {
+   "start": 0.0,
+   "end": 3.18,
+   "text": "That is Gantry: seven LangGraph graphs,"
+  },
+  {
+   "start": 3.6,
+   "end": 7.62,
+   "text": "a live feed in, polls and pins out,\nand a ledger so it can be left alone."
+  },
+  {
+   "start": 8.6,
+   "end": 11.22,
+   "text": "Run make dev, and open it on localhost,"
+  },
+  {
+   "start": 11.22,
+   "end": 15.22,
+   "text": "port twenty-thirty, or open\nthe graphs in LangGraph Studio."
+  },
+  {
+   "start": 16.2,
+   "end": 18.0,
+   "text": "These recordings used the offline model."
+  },
+  {
+   "start": 18.64,
+   "end": 23.2,
+   "text": "A real model is one setting away, and\nthat path is written, but not yet run."
+  }
+ ]
+}

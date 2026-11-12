@@ -1,0 +1,48 @@
+{
+ "scenes": [
+  {
+   "id": "A",
+   "text": "This is Gantry, an autonomous producer for a live sports stream. It watches a sports data feed and the chat, ranks and curates what matters, and then suggests polls, or on autopilot, simply runs them. Everything you will see is a recorded run of the real app, on the offline model: no keys, no network. Here is a goal, and twenty-five seconds of match time later, a poll that nobody typed."
+  },
+  {
+   "id": "B",
+   "text": "The loop is simple to say. A feed and a chat go into a window: one stretch of the broadcast, as plain JSON. The showrunner runs it through two subgraphs. The curator ranks and curates. The action desk generates actions, and decides whether each one goes out, waits for a human, or is held back. Whatever happens is written to the LangGraph Store, so the next window remembers."
+  },
+  {
+   "id": "C",
+   "text": "It runs in real time, driven by events rather than a timer. A goal arms a window twenty-five seconds later, so the chat's reaction is in it. A penalty is urgent, and fires within seconds. Here we push a penalty into the feed ourselves, and the poll is out before the kick is taken. If the graphs ever fall behind, triggers ride along with the next window. A live system sheds load; it does not build a queue."
+  },
+  {
+   "id": "D",
+   "text": "Here is one window, replayed from the real run. Triage is a cheap gate, because most ticks are noise. Then the curator runs as a subgraph, and after it the action desk, with the poll studio inside that. Three levels of subgraph, and one thread per window, so a suggestion waiting for a human never blocks the next goal."
+  },
+  {
+   "id": "E",
+   "text": "Flow one is ranking and curation, in two stages. The first is cheap, deterministic, and explainable: every moment is scored with its reasons, and the chat is cut into shards of forty and scored in parallel with Send. This window had 52 comments, so two shards, then a merge. The second stage is an editor, a model that sees only the shortlist. It can reorder the best of the chat, but never rescue what the first stage hid."
+  },
+  {
+   "id": "F",
+   "text": "The first feature is the poll. A moment becomes a candidate: a topic, the facts, and some baseline wording. Three writers, an analyst, a hype voice, and a fan from the terraces, draft it in parallel. A judge scores each draft: is it clear, neutral, about the moment, and new? Failures go back with notes. And if a model ever writes nonsense, the engine's own wording goes out instead."
+  },
+  {
+   "id": "G",
+   "text": "Then policy decides, for every action: publish, ask a human, or hold. One poll at a time, a gap between polls, never the same question twice, never a topic the human rejected. A big moment can close a small poll early. And every refusal is written to the ledger with its reason. That record is what lets it run on its own."
+  },
+  {
+   "id": "H",
+   "text": "In manual mode, every action waits for a human. Each suggestion is its own interrupt, so they can be answered in any order, by id. Here I edit the question and publish it, and it goes live at once, without waiting for the others. I reject the highlight, and the ledger records who decided. Each answer resumes the graph from its checkpoint, and nothing above the interrupt runs twice."
+  },
+  {
+   "id": "I",
+   "text": "Memory is what changes behaviour. When a poll closes, the memory keeper files how it did, and updates what this audience votes on. After a few matches, a disputed decision pulls 37% of viewers, and who scores next only 17%, against an average of 21%. The next candidates are ranked on that evidence, and when it is clear enough, a lesson is written down. Play the same match again, and the second time it asks fewer questions, and gets more votes per poll."
+  },
+  {
+   "id": "J",
+   "text": "It ships with an eval gate: offline, about five seconds. Against hidden ground truth, moment ranking scores at least 0.96, and 94% or more of the comments it highlights are good. Spam and abuse is held every time, and none of 2,551 good comments was wrongly held. Over three whole matches on autopilot: no overlapping polls, no repeats, no errors. And with memory, the second pass gets 26.6% of viewers voting, against 23.0%."
+  },
+  {
+   "id": "K",
+   "text": "That is Gantry: seven LangGraph graphs, a live feed in, polls and pins out, and a ledger so it can be left alone. Run make dev, and open it on localhost, port twenty-thirty, or open the graphs in LangGraph Studio. These recordings used the offline model. A real model is one setting away, and that path is written, but not yet run."
+  }
+ ]
+}

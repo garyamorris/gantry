@@ -1,0 +1,330 @@
+{
+ "graph_id": "showrunner",
+ "assistant_id": "326f4245-615c-59ae-b5c7-21c36465ccb1",
+ "description": "THE LOOP: one live window end to end. Intake, triage, curate (subgraph), act (subgraph), wrap. What the dispatcher runs on every trigger",
+ "graph": {
+  "nodes": [
+   {
+    "id": "__start__",
+    "type": "runnable",
+    "data": {
+     "name": "__start__"
+    }
+   },
+   {
+    "id": "intake",
+    "type": "runnable",
+    "data": {
+     "name": "intake"
+    },
+    "metadata": {
+     "role": "validates the window; fills a Studio form's blanks"
+    }
+   },
+   {
+    "id": "triage",
+    "type": "runnable",
+    "data": {
+     "name": "triage"
+    },
+    "metadata": {
+     "role": "cheap gate: most ticks are noise"
+    }
+   },
+   {
+    "id": "skip",
+    "type": "runnable",
+    "data": {
+     "name": "skip"
+    }
+   },
+   {
+    "id": "wrap",
+    "type": "runnable",
+    "data": {
+     "name": "wrap"
+    }
+   },
+   {
+    "id": "__end__"
+   },
+   {
+    "id": "curate:defaults",
+    "type": "runnable",
+    "data": {
+     "name": "curate:defaults"
+    },
+    "metadata": {
+     "role": "fills in what a Studio form leaves blank"
+    }
+   },
+   {
+    "id": "curate:rank_moments",
+    "type": "runnable",
+    "data": {
+     "name": "curate:rank_moments"
+    },
+    "metadata": {
+     "stage": "one: deterministic features"
+    }
+   },
+   {
+    "id": "curate:score_shard",
+    "type": "runnable",
+    "data": {
+     "name": "curate:score_shard"
+    },
+    "metadata": {
+     "stage": "one: map over chat shards"
+    }
+   },
+   {
+    "id": "curate:merge",
+    "type": "runnable",
+    "data": {
+     "name": "curate:merge"
+    },
+    "metadata": {
+     "stage": "one: reduce",
+     "defer": true
+    }
+   },
+   {
+    "id": "curate:editor",
+    "type": "runnable",
+    "data": {
+     "name": "curate:editor"
+    },
+    "metadata": {
+     "stage": "two: a model re-ranks the shortlist"
+    }
+   },
+   {
+    "id": "act:defaults",
+    "type": "runnable",
+    "data": {
+     "name": "act:defaults"
+    },
+    "metadata": {
+     "role": "fills in what a Studio form leaves blank"
+    }
+   },
+   {
+    "id": "act:recall",
+    "type": "runnable",
+    "data": {
+     "name": "act:recall"
+    },
+    "metadata": {
+     "store": "read: ledger, preferences, lessons (semantic search)"
+    }
+   },
+   {
+    "id": "act:propose",
+    "type": "runnable",
+    "data": {
+     "name": "act:propose"
+    }
+   },
+   {
+    "id": "act:screen",
+    "type": "runnable",
+    "data": {
+     "name": "act:screen"
+    },
+    "metadata": {
+     "policy": "publish | ask | suppress",
+     "store": "semantic search for near-duplicate polls"
+    }
+   },
+   {
+    "id": "act:handle",
+    "type": "runnable",
+    "data": {
+     "name": "act:handle"
+    },
+    "metadata": {
+     "human": "one interrupt per action, resumed by id",
+     "store": "write"
+    }
+   },
+   {
+    "id": "act:finish",
+    "type": "runnable",
+    "data": {
+     "name": "act:finish"
+    },
+    "metadata": {
+     "defer": true
+    }
+   },
+   {
+    "id": "act:poll_studio:defaults",
+    "type": "runnable",
+    "data": {
+     "name": "act:poll_studio:defaults"
+    },
+    "metadata": {
+     "role": "fills in what a Studio form leaves blank"
+    }
+   },
+   {
+    "id": "act:poll_studio:brief",
+    "type": "runnable",
+    "data": {
+     "name": "act:poll_studio:brief"
+    }
+   },
+   {
+    "id": "act:poll_studio:write",
+    "type": "runnable",
+    "data": {
+     "name": "act:poll_studio:write"
+    },
+    "metadata": {
+     "role": "one of three writers (Send)"
+    }
+   },
+   {
+    "id": "act:poll_studio:judge",
+    "type": "runnable",
+    "data": {
+     "name": "act:poll_studio:judge"
+    },
+    "metadata": {
+     "role": "rubric; sends failures back with notes",
+     "defer": true
+    }
+   },
+   {
+    "id": "act:poll_studio:finalize",
+    "type": "runnable",
+    "data": {
+     "name": "act:poll_studio:finalize"
+    }
+   }
+  ],
+  "edges": [
+   {
+    "source": "__start__",
+    "target": "intake"
+   },
+   {
+    "source": "act:finish",
+    "target": "wrap"
+   },
+   {
+    "source": "curate:editor",
+    "target": "act:defaults"
+   },
+   {
+    "source": "intake",
+    "target": "triage"
+   },
+   {
+    "source": "triage",
+    "target": "curate:defaults",
+    "conditional": true
+   },
+   {
+    "source": "triage",
+    "target": "skip",
+    "conditional": true
+   },
+   {
+    "source": "skip",
+    "target": "__end__"
+   },
+   {
+    "source": "wrap",
+    "target": "__end__"
+   },
+   {
+    "source": "curate:defaults",
+    "target": "curate:rank_moments"
+   },
+   {
+    "source": "curate:merge",
+    "target": "curate:editor"
+   },
+   {
+    "source": "curate:rank_moments",
+    "target": "curate:merge",
+    "conditional": true
+   },
+   {
+    "source": "curate:rank_moments",
+    "target": "curate:score_shard",
+    "conditional": true
+   },
+   {
+    "source": "curate:score_shard",
+    "target": "curate:merge"
+   },
+   {
+    "source": "act:defaults",
+    "target": "act:recall"
+   },
+   {
+    "source": "act:handle",
+    "target": "act:finish"
+   },
+   {
+    "source": "act:poll_studio:finalize",
+    "target": "act:screen"
+   },
+   {
+    "source": "act:propose",
+    "target": "act:poll_studio:defaults",
+    "conditional": true
+   },
+   {
+    "source": "act:propose",
+    "target": "act:screen",
+    "conditional": true
+   },
+   {
+    "source": "act:recall",
+    "target": "act:propose"
+   },
+   {
+    "source": "act:screen",
+    "target": "act:finish",
+    "conditional": true
+   },
+   {
+    "source": "act:screen",
+    "target": "act:handle",
+    "conditional": true
+   },
+   {
+    "source": "act:poll_studio:brief",
+    "target": "act:poll_studio:finalize",
+    "conditional": true
+   },
+   {
+    "source": "act:poll_studio:brief",
+    "target": "act:poll_studio:write",
+    "conditional": true
+   },
+   {
+    "source": "act:poll_studio:defaults",
+    "target": "act:poll_studio:brief"
+   },
+   {
+    "source": "act:poll_studio:judge",
+    "target": "act:poll_studio:finalize",
+    "conditional": true
+   },
+   {
+    "source": "act:poll_studio:judge",
+    "target": "act:poll_studio:write",
+    "conditional": true
+   },
+   {
+    "source": "act:poll_studio:write",
+    "target": "act:poll_studio:judge"
+   }
+  ]
+ }
+}
